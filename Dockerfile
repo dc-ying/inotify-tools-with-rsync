@@ -7,8 +7,6 @@ COPY rsyncd.conf /etc/rsyncd.conf
 
 RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 
-################################# apt install depends ########################
-
 RUN echo "[log] start apt-get install ..."
 
 RUN apt-get update -q 
@@ -16,9 +14,10 @@ RUN apt-get install -y -q build-essential \
 			  make \
                           inotify-tools \
 			  rsync \
-			  openssh-server \
-			  vim
+			  openssh-server 
 
 RUN  sed -ie 's/false/true/g' /etc/default/rsync
 COPY  rsyncd.secrets /etc/rsyncd.secrets
 RUN /etc/init.d/rsync start
+
+CMD /workspace/rsync.sh

@@ -1,4 +1,4 @@
-# inotify-tools-with-rsync-
+# inotify-tools-with-rsync
 a docker for inotify-tools with rsync 
 
 ## To build

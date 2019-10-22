@@ -20,4 +20,11 @@ RUN  sed -ie 's/false/true/g' /etc/default/rsync
 COPY  rsyncd.secrets /etc/rsyncd.secrets
 RUN /etc/init.d/rsync start
 
+RUN useradd --create-home --no-log-init --shell /bin/bash test
+RUN echo 'test:123' | chpasswd
+RUN mkdir /home/test/backup
+RUN mkdir /home/test/workspace
+
 CMD /workspace/rsync.sh
+
+WORKDIR /home/test/workspace

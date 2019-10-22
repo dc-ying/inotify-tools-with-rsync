@@ -1,6 +1,6 @@
 #!/bin/sh
-srcdir=/workspace
-dstdir=/backup
+srcdir=/home/test/workspace
+dstdir=/home/test/backup
 dstip='localhost'
 #excludedir=/usr/local/inotify/exclude.list
 

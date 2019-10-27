@@ -13,7 +13,7 @@ times=0
 while :
 do
 	#echo "Now $times"
-	timestamp=`date "+%Y-%m-%d_%H:%M:%S"`
+	#timestamp=`date "+%Y-%m-%d_%H:%M:%S"`
 	let times+=1
-	tcpdump tcp -i $eth -c 100 -w $work_dir/dumps/log_$timestamp_$times.pcap port $listen_port > /dev/null  2>&1
+	tcpdump tcp -i $eth -c 100 -w $work_dir/dumps/log_$(date "+%Y-%m-%d_%H:%M:%S")_$times.pcap port $listen_port > /dev/null  2>&1
 done

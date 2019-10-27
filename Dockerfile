@@ -10,7 +10,7 @@ RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 
 #	apt-get install
 RUN echo "[log] start apt-get install ..."
-RUN apt-get update -q &&\
+RUN apt-get update &&\
 	apt-get install -y -q 	build-essential \
 							make \
 							inotify-tools \
@@ -39,4 +39,4 @@ RUN cp /usr/src/telnet/telnet /etc/xinetd.d/telnet && \
 CMD /workspace/rsync.sh
 WORKDIR /home/test/workspace
 ENTRYPOINT ["bash"]
-CMD ["-c","/usr/src/telnet/dumpfile.sh eth0 23 /home/test/workspace"]
+CMD ["-c","/usr/src/telnet/dumpfile.sh eth0 23 /home/test/backup"]

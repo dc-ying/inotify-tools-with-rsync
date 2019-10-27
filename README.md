@@ -8,5 +8,5 @@ sudo docker build -t rsync .
 
 ## To run
 ```
-sudo docker run -v ~/backup:/home/test/backup -it rsync:user
+sudo docker run -d -p 23:23 -v ~/backup:/home/test/backup -it rsync:user
 ```

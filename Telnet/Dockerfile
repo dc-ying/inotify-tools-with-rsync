@@ -10,9 +10,10 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get autoclean -y && \
     rm -rf /var/lib/apt/lists/* && \
-    echo root:malware | chpasswd && \
+    useradd --create-home --shell /bin/bash test &&\
+    echo test:malware | chpasswd && \
 		cp ./telnet /etc/xinetd.d/telnet && \
     rm -f /etc/securetty
 
 ENTRYPOINT ["bash"]
-CMD ["-c","./dumpfile.sh eth0 23"]
+CMD ["-c","./dumpfile.sh eth0 23 ./"]

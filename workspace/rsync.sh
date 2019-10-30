@@ -1,8 +1,8 @@
 #!/bin/sh
-srcdir=/home/test/workspace
-dstdir=/home/test/backup
+srcdir=/home/admin
+dstdir=/backup
 dstip='localhost'
-#excludedir=/usr/local/inotify/exclude.list
+#excludedir='/home/admin/backup/'
 
 rsyncpassdir=/etc/passwd.txt
 

@@ -10,8 +10,8 @@ RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 
 #	apt-get install
 RUN echo "[log] start apt-get install ..."
-RUN apt-get update &&\
-	apt-get install -y -q 	build-essential \
+RUN apt-get update
+RUN apt-get install -y -q 	build-essential \
 							make \
 							inotify-tools \
 							rsync \
@@ -28,7 +28,7 @@ RUN /etc/init.d/rsync start
 
 #	add user: test/123
 RUN useradd --create-home --no-log-init --shell /bin/bash test
-RUN echo 'test:123' | chpasswd
+RUN echo 'admin:admin' | chpasswd
 RUN mkdir /home/test/backup
 RUN mkdir /home/test/workspace
 
